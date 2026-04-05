@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body,
+    #root {
+        height: 100%;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        @apply bg-slate-100;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-slate-300 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-slate-400;
+    }
+}
+
+@layer utilities {
+    .glass {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .glass-dark {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background: rgba(0, 10, 40, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .scrollbar-thin {
+        scrollbar-width: thin;
+    }
+}
+
+/* Bounding box animation */
+@keyframes boundingPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.9), 0 0 16px rgba(255, 140, 0, 0.4);
+    }
+}
+
+.bounding-box-active {
+    animation: boundingPulse 1.4s ease-in-out infinite;
+}
+
+/* Spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-fast {
+    animation: spin 0.7s linear infinite;
+}
+
+/* Confidence bar fill */
+.conf-bar {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth sidebar transition */
+.sidebar-transition {
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Panel slide */
+.panel-transition {
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s;
+}
+
+/* Float animation for upload icon */
+@keyframes floatY {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: floatY 2.8s ease-in-out infinite;
+}
+
+/* Fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease forwards;
+}
